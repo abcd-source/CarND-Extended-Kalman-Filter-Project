@@ -38,12 +38,18 @@ class FusionEKF {
   // previous timestamp
   long long previous_timestamp_;
 
+  // Fixed noise for process covariance matrix, defined by project instructions
+  float noise_ax = 9;
+  float noise_ay = 9;
+
   // tool object used to compute Jacobian and RMSE
   Tools tools;
   Eigen::MatrixXd R_laser_;
   Eigen::MatrixXd R_radar_;
   Eigen::MatrixXd H_laser_;
   Eigen::MatrixXd Hj_;
+
+  bool debug_ = false;
 };
 
 #endif // FusionEKF_H_
